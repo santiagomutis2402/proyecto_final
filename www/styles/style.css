@@ -1,0 +1,119 @@
+.carousel-item {
+  height: 100%;
+}
+.justificado {
+  text-align: justify;
+}
+.pelis {
+}
+
+.tm {
+  height: 20rem;
+  width: auto;
+  cursor: pointer;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tmc {
+  height: 30rem;
+  width: auto;
+  cursor: pointer;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tmc2 {
+  width: 100vw;
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tm:hover .overlay {
+  opacity: 1;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: #15242997;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.fondoform {
+  height: 45rem;
+  background-image: url("../img_fondo/Movie-Director-Vector-Illustration.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bg-fondo {
+  height: auto;
+  background-image: url("../img_fondo/bg.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-oscurecer {
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* dialog */
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#mostrar {
+  background-color: #ffffff;
+  color: #161616;
+  border: none;
+  font-size: 1.5rem;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+#dialogo {
+  border: none;
+  border-radius: 10px;
+  height: 60%;
+  width: 40%;
+}
+
+#cerrar {
+  background: #67c3e6;
+  border: none;
+  border-radius: 5px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+}
+
+.icono {
+  width: 200px;
+}
