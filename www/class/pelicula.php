@@ -214,9 +214,14 @@ class pelicula extends modeloCredencialesBD
         $consulta = $this->_db->query($instruccion);
 
         if ($consulta == true) {
-            header('Location: /listar.php');
+            header('Location: /index.php');
         }
     }
+
+    public function enviarCorreo($name)
+    {
+    }
+
 
     public function iniciar_Server()
     {

@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         placeholder="*********" name="password">
                 </div>
 
-                <p class="text-white fw-light">No tienes cuenta! <a href="registro.php"
+                <p class="text-white fw-light">No tienes cuenta! <a href="forms/registro.php"
                         class="text-warning">Registrate</a></p>
 
 

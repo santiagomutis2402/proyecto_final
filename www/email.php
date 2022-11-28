@@ -26,8 +26,8 @@ try {
     // $mail->addAttachment('docs/dashboard.png', 'Dashboard.png');
 
     $mail->isHTML(true);
-    $mail->Subject = 'Prueba desde GMAIL';
-    $mail->Body = 'Hola, <br/>Esta es una prueba desde <b>Gmail</b>.';
+    $mail->Subject = 'Codigo de verificacion';
+    $mail->Body = 'Hola, <br/>Su codigo de verificacion es: 2402 <b>Gmail</b>.';
     $mail->send();
 
     echo 'Correo enviado';

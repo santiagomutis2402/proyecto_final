@@ -3,21 +3,51 @@ ob_start();
 require_once("../class/pelicula.php");
 $obj_actividad = new pelicula();
 
-$correo = "";
-$username = "";
-$pasword = "";
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require '../PHPMailer-master/src/PHPMailer.php';
+require '../PHPMailer-master/src/SMTP.php';
+require '../PHPMailer-master/src/Exception.php';
+
+$mail = new PHPMailer(true);
+
+try {
+    $mail->isSMTP();
+    $mail->Host = 'smtp.mailtrap.io';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'f75afa7938cf97';
+    $mail->Password = '4ef29f374d2b76';
+    $mail->SMTPSecure = 'tls';
+    $mail->Port = 2525;
+
+    $mail->setFrom('freemovie@gmail.com', 'Gerente');
+    $mail->addAddress('andrezperez2402@gmail.com');
+
+    // $mail->addAttachment('docs/dashboard.png', 'Dashboard.png');
+
+    $mail->isHTML(true);
+    $mail->Subject = 'Codigo de verificacion';
+    $mail->Body = 'Hola, <br/>Su codigo de verificacion es: 2402 .';
+    $mail->send();
+} catch (Exception $e) {
+    echo 'Mensaje ' . $mail->ErrorInfo;
+}
+
+$correo = $_GET['correo'];
+$username = $_GET['username'];
+$pasword = $_GET['password'];
+
 $rol = 1;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    $correo = $_POST['correo'];
-    $username = $_POST['username'];
-    $pasword = $_POST['password'];
-    if ($correo != null and $username != null and $pasword != null) {
-        header("Location: /forms/validarCod.php?correo=${correo}&username=${username}&password=${pasword}");
+    $codigo = $_POST['codigo'];
+    if ($codigo == 2402) {
+        $consulta = $obj_actividad->registro($correo, $username, $pasword, $rol);
     }
 }
-
 ob_end_flush();
 ?>
 <!DOCTYPE html>
@@ -42,24 +72,11 @@ ob_end_flush();
             <h1 class="text-center text-white ">Registro</h1>
             <form method="post" class="">
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label fw-semibold  text-white">Correo</label>
-                    <input type="email" class="form-control bg-dark text-white" id="exampleFormControlInput1"
-                        placeholder="name@example.com" name="correo">
+                    <label for="exampleFormControlInput1" class="form-label fw-semibold  text-white">Ingresa el
+                        codigo</label>
+                    <input type="number" class="form-control bg-dark text-white" id="exampleFormControlInput1"
+                        placeholder="####" name="codigo">
                 </div>
-
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label  fw-semibold text-white">Username</label>
-                    <input type="text" class="form-control bg-dark text-white" id="exampleFormControlInput1"
-                        placeholder="username@" name="username">
-                </div>
-
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label  fw-semibold text-white">Contraseña</label>
-                    <input type="password" class="form-control bg-dark text-white" id="exampleFormControlInput1"
-                        placeholder="*********" name="password">
-                </div>
-
-
 
                 <p class="text-white fw-light">Ya tienes cuenta! <a href="/index.php" class="text-warning">Logeate</a>
                 </p>
