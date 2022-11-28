@@ -70,7 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="d-grid gap-2 mb-3">
                     <button class="btn btn-outline-primary mb-3" type="submit">Logeate</button>
-                    <button class="btn btn-outline-light" type="button">Google</button>
                 </div>
             </form>
         </div>
