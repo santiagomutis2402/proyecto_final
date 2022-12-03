@@ -123,8 +123,9 @@ class pelicula extends modeloCredencialesBD
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
         if (!$resultado) {
-            echo "Fallo al consultar las peliculas";
-        } else {
+?>
+<a href="../forms/crear_editar.php">Insertar</a>
+<?php } else {
             return $resultado;
             $resultado->close();
             $this->_db->close();
@@ -216,10 +217,6 @@ class pelicula extends modeloCredencialesBD
         if ($consulta == true) {
             header('Location: /index.php');
         }
-    }
-
-    public function enviarCorreo($name)
-    {
     }
 
 

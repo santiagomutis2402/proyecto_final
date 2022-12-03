@@ -1,5 +1,4 @@
 <?php
-
 require_once("../class/pelicula.php");
 $obj_actividad = new pelicula();
 $obj_actividad->iniciar_Server();
@@ -21,8 +20,7 @@ $obj_actividad->iniciar_Server();
 
 <body class="fondo">
     <div class="container">
-        <header
-            class="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
             <div class="col-md-6">
                 <ul class="nav col-12 col-md-auto mb-2 justify-content-start mb-md-0">
                     <li>

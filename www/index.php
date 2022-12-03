@@ -2,6 +2,7 @@
 
 require_once("class/pelicula.php");
 $obj_actividad = new pelicula();
+$mensaje = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   $username = $_POST['username'];
@@ -10,22 +11,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $password = $obj_actividad->val_password($password);
 
 
-  if (!$username) {
-    $errores[] = 'El Username es Obligatorio o no válido';
-  }
-
-  if (!$password) {
-    $errores[] = 'El Password es obligatorio';
-  }
-
-  if (empty($errores)) {
+  if (!empty($username) and !empty($password)) {
     $login = $obj_actividad->login($username, $password);
 
     if ($login == true) {
       header('Location: /listar.php');
-    } // else {
-    //   header('Location: /forms/login.php');
-    // }
+    } else {
+      $mensaje = "El usuario o la contraseña estan mal";
+    }
+  } else {
+    $mensaje = "Llene todos los campos";
   }
 }
 
@@ -53,7 +48,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h1 class="text-center text-white ">Login</h1>
             <form method="post" class="">
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label fw-semibold  text-white">Username</label>
+                    <label class="fw-semibold text-danger d-flex justify-content-center"><?php echo $mensaje ?>
+                    </label>
+                    <br>
+                    <label for="exampleFormControlInput1" class="form-label  fw-semibold text-white">Username</label>
                     <input type="text" class="form-control bg-dark text-white" id="exampleFormControlInput1"
                         placeholder="name@example.com" name="username">
                 </div>
@@ -76,4 +74,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <!-- Section: Design Block -->
-    <?php include 'templates/footer.php' ?>
+    <?php include '../templates/footer.php' ?>

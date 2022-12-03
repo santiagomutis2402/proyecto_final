@@ -70,7 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $rutaVideo = $videodb;
             $rutaImagen = $portadadb;
         }
-
         $response = $obj_insertar->EditarPelicula($titulo, $descripcion, $rutaImagen, $rutaVideo, $genero, $id);
     }
 
