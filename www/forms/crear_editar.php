@@ -117,11 +117,13 @@ ob_end_flush();
                     </div>
                     <div class="mb-3">
                         <label for="imagen" class="form-label">Portada</label>
-                        <input type="file" accept="img" class="form-control" name="imagen" id="imagen">
+                        <input type="file" accept="img" class="form-control" name="imagen" id="imagen"
+                            <?php if ($id == 0) { ?> required <?php } else { ?> <?php } ?>>
                     </div>
                     <div class="mb-3">
                         <label for="video" class="form-label">Video</label>
-                        <input type="file" class="form-control" name="video" id="video" placeholder="name@example.com">
+                        <input type="file" class="form-control" name="video" id="video" <?php if ($id == 0) { ?>
+                            required <?php } else { ?> <?php } ?>>
                     </div>
 
                     <input type="submit" class="btn btn-primary" value="Subir">
