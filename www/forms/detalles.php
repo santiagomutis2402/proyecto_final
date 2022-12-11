@@ -51,7 +51,6 @@ $detalles = $obj_pelicula->listar_peliculas_ID($ID);
                         class="btn btn-outline-warning  mb-2">Editar</a>
                 </div>
             </div>
-
         </div>
     </div>
 </body>
