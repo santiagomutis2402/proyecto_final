@@ -4,10 +4,6 @@ ob_start();
 include 'templates/header.php';
 require_once("class/pelicula.php");
 
-
-
-
-
 $auth = $obj_actividad->validar();
 if (!$auth) {
     header('Location: /');
